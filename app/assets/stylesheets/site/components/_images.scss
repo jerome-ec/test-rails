@@ -1,0 +1,73 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.img-placeholder {
+  display: block;
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+
+  img,
+  video,
+  iframe,
+  svg:not(.icon) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  iframe {
+    border-radius: 10px;
+  }
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scale-bg {
+  padding-top: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+
+  & ~ .container,
+  & ~ .container-emp {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.img-holder {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1;
+
+  img,
+  video,
+  iframe,
+  svg:not(.icon) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

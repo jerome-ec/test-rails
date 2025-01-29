@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
+  font-display: swap;
+  src: local("PlusJakartaSans-Regular"),
+    url(asset_path("site/fonts/PlusJakartaSans-Regular.ttf")) format("truetype");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-display: swap;
+  src: local("PlusJakartaSans-Medium"),
+    url(asset_path("site/fonts/PlusJakartaSans-Medium.ttf")) format("truetype");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  font-display: swap;
+  src: local("PlusJakartaSans-Semibold"),
+    url(asset_path("site/fonts/PlusJakartaSans-Semibold.ttf"))
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-display: swap;
+  src: local("PlusJakartaSans-Bold"),
+    url(asset_path("site/fonts/PlusJakartaSans-Bold.ttf")) format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Now Text";
+  font-weight: 700;
+  font-display: swap;
+  src: local("helveticanowtext-bold-demo"),
+    url(asset_path("site/fonts/helveticanowtext-bold-demo.ttf")) format("truetype");
+}

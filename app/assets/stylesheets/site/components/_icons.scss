@@ -1,0 +1,89 @@
+@import './site/vendor/rfs';
+@import './site/abstracts/variables';
+@import './site/abstracts/mixins';
+
+.icon {
+	fill: currentColor;
+}
+
+.icon-static,
+.icon {
+	height: 1em;
+	width: 1em;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.icon-tabler {
+	path,
+	circle,
+	rect,
+	polyline,
+	line {
+		fill: none;
+		stroke: currentColor;
+
+		&.fill {
+			fill: currentColor;
+		}
+	}
+	&--fill {
+		path {
+			fill: currentColor;
+			stroke: none;
+			&.fill {
+				fill: currentColor;
+			}
+		}
+	}
+	&--full {
+		width: auto;
+		height: auto;
+	}
+}
+
+.about-pillar-logo {
+	// fill: rgb(255, 255, 255);
+	width: 80px;
+	aspect-ratio: 1/1;
+	path {
+		opacity: 0.4;
+	}
+}
+
+.about-pillar-logo--first {
+	path {
+		fill: white;
+	}
+	path:nth-child(1) {
+		fill: #3b82c4;
+		opacity: 1;
+	}
+}
+
+.about-pillar-logo--second {
+	path {
+		fill: white;
+	}
+	path:nth-child(2) {
+		fill: #70d0b9;
+		opacity: 1;
+	}
+}
+
+.about-pillar-logo--third {
+	path {
+		fill: white;
+	}
+	path:nth-child(3) {
+		fill: #ffb72a;
+		opacity: 1;
+	}
+}
+
+.about-pillar-logo--fourth {
+	path {
+		fill: #ffb72a;
+		opacity: 1;
+	}
+}

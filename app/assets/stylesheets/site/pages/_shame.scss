@@ -1,0 +1,132 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.section {
+  position: relative;
+  @include rfs(80px, padding-top);
+  @include rfs(80px, padding-bottom);
+  
+  @include media-breakpoint-down(md) {
+    padding: 24px 0;
+  }
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include rfs(80px, padding-top);
+  @include rfs(120px, padding-bottom);
+
+  @include media-breakpoint-down(md) {
+    padding: 24px 0 64px;
+
+    .event-title {
+      font-size: 24px;
+    }
+
+    .event-desc {
+      font-size: 16px;
+    }
+  }
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  color: $primary;
+  font-weight: $font-weight-bold;
+  gap: 8px;
+}
+
+.contact-links {
+  font-weight: $font-weight-bold;
+  color: $primary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.social-links {
+  font-size: 24px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.guideline-arrows {
+  position: relative;
+  right: unset;
+  left: unset;
+  background: transparent;
+  height: 48px;
+  width: 48px;
+  top: 0;
+  transform: translate(0);
+}
+
+.splide__arrows--events {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+
+  @include media-breakpoint-down(md) {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+#eventImg {
+  @include media-breakpoint-down(md) {
+    height: 302px;
+  }
+}
+
+.announcement-arrows {
+  bottom: -2em;
+
+  .splide__pagination__page {
+    border: 1px solid $primary;
+    background: transparent;
+
+    &.is-active {
+      background: $primary;
+      border: 0;
+    }
+  }
+}
+
+.splide--events {
+  aspect-ratio: 4/3;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: calc(50% - 20px);
+    position: absolute;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    aspect-ratio: none;
+  }
+}
+
+.splide__arrows-guidelines {
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    bottom: -46px;
+    left: 100px;
+  }
+}
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: #d2dde5;
+}

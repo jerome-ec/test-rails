@@ -1,0 +1,98 @@
+section.section.bg-transition
+  .container
+    .row.gx-xxl-14.gx-6.gy-10
+      .col-lg-6
+        p.h6.subtitle.mb-2 contact
+        h2.display-5.fw-bold.text-main-color.mb-6 Get in touch with us
+        p Our commitment to efficient energy use drives us to provide solutions that maximize energy efficiency while minimizing waste. 
+
+        .hr.my-lg-10.my-6
+
+        .d-flex.flex-column.gap-6
+          .row.align-items-center.gx-4
+            .col-auto 
+              =icon('phone', 'h4 align-bottom')
+            .col-md-5.col
+              p.h6 San Fernando Office:
+              a.contact-links.d-md-none href="tel:+63459612727" rel="noopener noreferrer" +63 (45) 961-2727
+            .col.d-none.d-md-block 
+              a.contact-links href="tel:+63459612727" rel="noopener noreferrer" +63 (45) 961-2727
+          .row.align-items-center.gx-4
+            .col-auto 
+              =icon('phone', 'h4 align-bottom')
+            .col-md-5.col
+              p.h6 Floridablanca Office:
+              a.contact-links.d-md-none href="tel:+63459612727" rel="noopener noreferrer" +63 (45) 961-2727
+            .col.d-none.d-md-block 
+              a.contact-links href="tel:+63459612727" rel="noopener noreferrer" +63 (45) 961-2727
+          .row.align-items-center.gx-4
+            .col-auto 
+              =icon('mail', 'h4 align-bottom')
+            .col-md-5.col 
+              p.h6 Email us at:
+              a.contact-links.d-md-none href="mailto:sfelapco@gmail.com" rel="noopener noreferrer" sfelapco@gmail.com
+            .col.d-none.d-md-block
+              a.contact-links href="mailto:sfelapco@gmail.com" rel="noopener noreferrer" sfelapco@gmail.com
+
+        .hr.my-lg-10.my-6
+        .row.gx-6   
+          .col-auto 
+            a href="#{facebook_url}" rel="noopener noreferrer" target="_blank"
+              =icon('facebook', 'social-links')
+          .col-auto 
+            a href="#{twitter_url}" rel="noopener noreferrer" target="_blank"
+              =icon('twitter', 'social-links')
+          .col-auto 
+            a href="#{instagram_url}" rel="noopener noreferrer" target="_blank"
+              =icon('instagram', 'social-links')
+          .col-auto 
+            a href="#{linkedin_url}" rel="noopener noreferrer" target="_blank"
+              =icon('linkedin', 'social-links')
+
+      .col-lg-6
+        = form_for :anything, html: { data: { controller: "validate", form: "", turbo: false} } do |f|
+          .row.justify-content-center.gy-4
+            .col-lg-6
+              .field-group
+                =f.label :first_name, "First Name", class: "label label--required"
+                .field-container
+                  =f.text_field :first_name, class: "field", data: { validate: "", email: ""}, placeholder: "Enter your first name"
+                .field-helper
+            .col-lg-6
+              .field-group
+                =f.label :last_name, "Last Name", class: "label label--required"
+                .field-container
+                  =f.text_field :last_name, class: "field", data: { validate: "", email: ""}, placeholder: "Enter your last name"
+                .field-helper
+            .col-lg-6
+              .field-group
+                =f.label :email, "Email Address", class: "label label--required"
+                .field-container
+                  =f.text_field :email, class: "field", data: { validate: "", email: ""}, placeholder: "Enter your email address"
+                .field-helper
+            .col-lg-6
+              .field-group
+                =f.label :contact_number, "Contact Number", class: "label label--required"
+                .field-container
+                  =f.text_field :contact_number, id:"mobile", class: "field", data: { validate: "", email: ""}
+                  button type="button" data-controller='site--contact-mask'
+                .field-helper
+            .col
+              .field-group
+                =f.label :type_inquiry, "Type of Inquiry", class: "label label--required"
+                .field-container
+                  select.field.field--select
+                    option value="" Type of Inquiry
+            .field-group
+              =f.label :message, "Message", class: "label label--required"
+              .field-container
+                textarea.field 
+              .field-helper
+            p.h6.text-center
+              | By clicking submit, you agree to SFELPACO 
+              a.fw-bold.text-secondary.hover-underline href="#{site_privacy_policy_path}" rel="noopener noreferrer" target="_blank" Privacy Policy 
+              | and 
+              a.fw-bold.text-secondary.hover-underline href="#{site_terms_and_conditions_path}" rel="noopener noreferrer" target="_blank" Terms & Conditions
+              | .
+            .col-md-4
+              button.btn.btn--primary.btn--block.rounded-1 type="submit" Submit

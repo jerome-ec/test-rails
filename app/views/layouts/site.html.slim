@@ -1,0 +1,47 @@
+doctype html
+html lang="en"
+  head
+    title
+      = content_for?(:title) ? yield(:title) + 'Jiro' : "#{controller_name.titleize if controller_name != 'home'} Jiro"
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
+
+    -if content_for? :meta_robot_unfollow
+      =yield(:meta_robot_unfollow)
+    -else
+      meta name="robots" content="index, follow"
+    meta name="theme-color" content="#BC9A5D"
+    / Additional page-specific Meta Tags.
+    meta content="#{meta_description}" name="description"
+    meta content="#{meta_keywords}" name="keywords"
+    / /! Facebook Open Graph data
+    meta content="#{meta_title}" property="og:title"
+    meta content="website" property="og:type"
+    meta content="#{request.url}" property="og:url"
+    / meta content="#{meta_image}" property="og:image"
+    meta content="#{meta_description}" property="og:description"
+    meta content="#{meta_title}" property="og:site_name"
+    / /! Twitter Card data
+    meta content="summary_large_image" name="twitter:card"
+    meta name="twitter:site" content="#{twitter_account}"
+    meta content="#{meta_title}" name="twitter:title"
+    meta content="#{meta_description}" name="twitter:description"
+    meta name="twitter:creator" content="#{twitter_account}"
+    / meta content="#{meta_image}" name="twitter:image:src"
+    / meta tag to remove telephone detection on iOS devices
+    meta name="format-detection" content="telephone=no"
+    meta name="turbo-cache-control" content="no-cache"
+    -if content_for? :canonical
+      =yield(:canonical)
+
+    / = favicon_link_tag "favicon.ico", rel: "shortcut icon", type: "image/x-icon"
+    = stylesheet_link_tag "site", media: "all", 'data-turbolink-track': 'reload'
+
+    =javascript_importmap_tags
+
+  body
+    main
+      =yield
+    =render "site/partials/footer"
+

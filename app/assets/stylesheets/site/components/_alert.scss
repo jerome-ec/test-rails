@@ -1,0 +1,57 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.alert {
+  --alert-bg: #{$alert-bg};
+  --alert-color: #{$alert-color};
+
+  position: relative;
+  padding: $alert-padding;
+  background: var(--alert-bg);
+  color: var(--alert-color);
+  border-radius: $alert-radius;
+  margin-bottom: $alert-margin;
+  font-weight: $alert-font-weight;
+
+  .btn--icon {
+    --field-height: var(--field-height-xs);
+  }
+
+  .btn--icon-hover {
+    .svg-icon {
+      font-size: 18px;
+    }
+  }
+
+  &--border {
+    border: 1px solid transparent;
+  }
+
+  // Generate alert themes
+  //
+
+  // Solid alerts
+  // Set `$enable-alert-solid` to true to enable
+  // Map through $alert-solid
+
+  @if $enable-alert-solid {
+    @each $color, $value in $alert-solid {
+      &--#{$color} {
+        @include alert-solid($value);
+      }
+    }
+  }
+
+  // Soft alerts
+  // Set `$enable-alert-soft` to true to enable
+  // Map through $alert-soft
+
+  @if $enable-alert-soft {
+    @each $color, $value in $alert-soft {
+      &--soft-#{$color} {
+        @include alert-soft($value);
+      }
+    }
+  }
+}
