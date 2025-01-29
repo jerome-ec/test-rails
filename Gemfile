@@ -67,3 +67,5 @@ gem "fog-aws"
 group :development do
   gem "dotenv-rails"
 end
+
+gem "jekyll"
