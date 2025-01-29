@@ -223,6 +223,9 @@ GEM
       racc
     pp (0.6.2)
       prettyprint
+    prerender_rails (1.6.1)
+      activesupport
+      rack
     prettyprint (0.2.0)
     psych (5.2.3)
       date
@@ -396,6 +399,7 @@ DEPENDENCIES
   fog-aws
   importmap-rails
   jbuilder
+  prerender_rails
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   rubocop-rails-omakase
