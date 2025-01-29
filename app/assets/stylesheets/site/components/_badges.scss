@@ -1,0 +1,115 @@
+@import './site/vendor/rfs';
+@import './site/abstracts/variables';
+@import './site/abstracts/mixins';
+
+.badge {
+	--badge-bg: $badge-bg;
+	--badge-color: $badge-color;
+	display: $badge-display;
+	padding: $badge-padding;
+	border-radius: $badge-radius;
+	font-size: $badge-font-size;
+	background-color: var(--badge-bg);
+	color: var(--badge-color);
+	@include media-breakpoint-down($menu-breakpoint) {
+		font-size: 14px;
+	}
+	@if $badge-pill-enabled {
+		//
+		// Pills
+		//
+		&--pill {
+			border-radius: $radius-pill;
+		}
+	}
+
+	@if $enable-badge-solid {
+		@each $color, $value in $badge-solid {
+			&--#{$color} {
+				@include badge-solid($value, map-get($text-colors-lookup, $color));
+			}
+		}
+	}
+
+	@if $enable-badge-soft {
+		@each $color, $value in $badge-soft {
+			&--soft-#{$color} {
+				@include badge-soft($value);
+			}
+		}
+	}
+
+	@if $badge-dot-enabled {
+	}
+
+	//
+	// Variants
+	//
+	// @each $color, $value in $badge-colors {
+	//   &--#{$color} {
+	//     @include badge-variant($value);
+	//   }
+	// }
+
+	// //
+	// // Variants
+	// //
+	// @each $color, $value in $badge-colors {
+	//   &--soft-#{$color} {
+	//     @include badge-soft-variant($value);
+	//   }
+	// }
+
+	&--outline-primary {
+		border: 1px solid $primary;
+	}
+
+	&--outline-white {
+		border: 1px solid $white;
+	}
+
+	&--outline-secondary {
+		border: 1px solid $secondary;
+		color: $secondary;
+		border-radius: 24px;
+	}
+
+	&--camp {
+		background-color: $white;
+		border: 1px solid $primary;
+		border-radius: 4px;
+		color: $primary;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 1;
+		padding: 4px 8px;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		z-index: 1080;
+	}
+
+	&--tag {
+		align-items: center;
+		border: 1px solid #616161;
+		border-radius: 20px;
+		color: #616161;
+		display: inline-flex;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		padding: 4px 8px;
+		@include media-breakpoint-down(lg) {
+			margin-bottom: 8px;
+		}
+		button {
+			margin-left: 16px;
+			svg {
+				width: 16px;
+				height: 16px;
+				vertical-align: middle;
+			}
+		}
+	}
+}

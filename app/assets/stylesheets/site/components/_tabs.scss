@@ -1,0 +1,17 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+
+.tab-pane {
+  display: none;
+
+  &.active,
+  &.show {
+    display: block;
+  }
+}

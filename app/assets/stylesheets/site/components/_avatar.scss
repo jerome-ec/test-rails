@@ -1,0 +1,37 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.avatar {
+  --avatar-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  height: var(--avatar-size);
+  width: var(--avatar-size);
+  background: $white;
+  overflow: hidden;
+  position: relative;
+  color: $white;
+
+  &--rounded {
+    border-radius: $avatar-rounded-radius;
+  }
+
+  &--square {
+    border-radius: 0;
+  }
+
+  @each $size, $value in $avatar-sizes {
+    &--#{$size} {
+      --avatar-size: #{$value};
+    }
+  }
+}
+
+.avatar--frosted {
+  background-color: transparent;
+  border: 1px solid #aeafc2;
+  @include rfs(6px, border-radius);
+}

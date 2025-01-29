@@ -1,0 +1,16 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.footer {
+  background-color: $white;
+  color: $neutral-950;
+
+  &__links {
+    color: $neutral-950;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

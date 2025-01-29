@@ -1,0 +1,418 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+//  stylelint-disable indentation
+
+//  Utilities
+
+$utilities: () !default;
+//  stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-merge(
+  (
+     "align": (
+       property: vertical-align,
+       class: align,
+       values: baseline top middle bottom,
+     ),
+     "position": (
+       property: position,
+       class: pos,
+       values: relative absolute,
+     ),
+    "display":
+      (
+        property: display,
+        class: d,
+        responsive: true,
+        values: block none inline-flex flex inline,
+      ),
+     "text-align": (
+       property: text-align,
+       class: text,
+       responsive: true,
+       values: center right left,
+     ),
+     "text-decoration": (
+       property: text-decoration,
+       class: text,
+       values: underline,
+     ),
+     "text-transform": (
+       property: text-transform,
+       class: text,
+       values: uppercase,
+     ),
+     "background-color": (
+       property: background-color,
+       class: bg,
+       values: (
+        white: $white,
+        transition: #F5F7FA,
+       ),
+     ),
+     "overflow": (
+       property: overflow,
+       values: hidden visible,
+     ),
+     "color":
+       (
+         property: color,
+         class: text,
+         values: (
+           white: $white,
+           success: $success,
+           primary: $primary,
+           muted: $gray-500,
+           secondary: $secondary,
+           meutral-800: $neutral-800,
+
+         ),
+       ),
+     "font-family": (
+       property: font-family,
+       class: font,
+       values: (
+         base: $font-family-base,
+         heading: $font-family-heading,
+         alt: $font-family-alt,
+       ),
+     ),
+     "font-weight": (
+       property: font-weight,
+       class: fw,
+       values: (
+         normal: $font-weight-normal,
+         medium: $font-weight-medium,
+         semibold: $font-weight-semibold,
+         bold: $font-weight-bold,
+         black: $font-weight-black,
+       ),
+     ),
+     "font-style": (
+       property: font-style,
+       class: text,
+       values: italic,
+     ),
+     "line-height": (
+       property: line-height,
+       class: lh,
+       values: (
+         1: 1,
+         p: 1.8,
+         sm: $line-height-sm,
+         md: 1.5,
+       ),
+     ),
+     "padding": (
+       rfs: true,
+       property: padding,
+       class: p,
+       values: (
+         0: 0,
+         3: $spacer * 3,
+         4: $spacer * 4,
+         6: $spacer * 6,
+         8: $spacer * 8,
+         10: $spacer * 10,
+       ),
+     ),
+      "padding-left": (
+        responsive: true,
+        rfs: true,
+        property: padding-left,
+        class: pl,
+        values: (
+          30: $spacer * 30,
+        ),
+      ),
+    "flex-direction":
+      (
+        responsive: true,
+        property: flex-direction,
+        class: flex,
+        values: column row,
+      ),
+    "padding-x": (
+      rfs: true,
+      property: padding-left padding-right,
+      class: px,
+      values: (
+        8: $spacer * 8,
+        10: $spacer * 10,
+      ),
+    ),
+    "padding-y": (
+      rfs: true,
+      property: padding-top padding-bottom,
+      class: py,
+      values: (
+        0: 0,
+        6: $spacer * 6,
+        10: $spacer * 10,
+        15: $spacer * 15,
+        17: $spacer * 17,
+        20: $spacer * 20,
+      ),
+    ),
+    "padding-top": (
+      rfs: true,
+      property: padding-top,
+      class: pt,
+      values: (
+        0: 0,
+        4: $spacer * 4,
+        10: $spacer * 10,
+        20: $spacer * 20,
+        30: $spacer * 30,
+      ),
+    ),
+    "padding-bottom": (
+      rfs: true,
+      property: padding-bottom,
+      class: pb,
+      values: (
+        1: $spacer,
+      ),
+    ),
+    "margin-left": (
+      rfs: true,
+      property: margin-left,
+      class: ml,
+      values: (
+        auto: auto,
+        0: 0,
+      ),
+    ),
+    "margin-right": (
+      rfs: true,
+      property: margin-right,
+      class: mr,
+      values: (
+        2: $spacer * 2,
+      ),
+    ),
+    "margin-bottom": (
+      responsive: true,
+      property: margin-bottom,
+      class: mb,
+      values: (
+        0: 0,
+        1: $spacer,
+        2: $spacer * 2,
+        3: $spacer * 3,
+        4: $spacer * 4,
+        6: $spacer * 6,
+        8: $spacer * 8,
+        9: $spacer * 9,
+        10: $spacer * 10,
+        12: $spacer * 12,
+        14: $spacer * 14,
+        16: $spacer * 16,
+        20: $spacer * 20,
+      ),
+    ),
+    "margin-top": (
+      rfs: true,
+      property: margin-top,
+      class: mt,
+      values: (
+        auto: auto,
+        1: $spacer * 1,
+        4: $spacer * 7,
+      ),
+    ),
+    "margin-y": (
+      responsive: true,
+      property: margin-top margin-bottom,
+      class: my,
+      values: (
+        3: $spacer * 3,
+        4: $spacer * 4,
+        6: $spacer * 6,
+        8: $spacer * 8,
+        12: $spacer * 12,
+      ),
+    ),
+    "margin-x": (
+      property: margin-left margin-right,
+      class: mx,
+      values: (
+        auto: auto,
+      ),
+    ),
+    "margin": (
+      property: margin,
+      class: m,
+      values: (
+        0: 0,
+      ),
+    ),
+    "flex-wrap": (
+      property: flex-wrap,
+      class: flex,
+      values: nowrap,
+    ),
+    "justify-content": (
+      property: justify-content,
+      responsive: true,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+      ),
+    ),
+     "gap": (
+       property: gap,
+       class: gap,
+       values: (
+         2: $spacer * 2,
+         4: $spacer * 4,
+         6: $spacer * 6,
+       ),
+     ),
+    //  "gutter": (
+    //    property: --gutter-x --gutter-y,
+    //    class: g,
+    //    values: (
+    //      0: 0,
+    //      1: $spacer,
+    //      2: $spacer * 2,
+    //      4: $spacer * 4,
+    //      6: $spacer * 6,
+    //      8: $spacer * 8,
+    //      12: $spacer * 12,
+    //    ),
+    //  ),
+     "gutter-x": (
+       property: --gutter-x,
+       class: gx,
+       values: (
+         4: $spacer * 4,
+         6: $spacer * 6,
+         8: $spacer * 8,
+         14: $spacer * 14,
+         16: $spacer * 16,
+       ),
+     ),
+     "gutter-y": (
+       property: --gutter-y,
+       class: gy,
+       values: (
+         4: $spacer * 4,
+         6: $spacer * 6,
+         8: $spacer * 8,
+         10: $spacer * 10,
+       ),
+     ),
+     "width": (
+       property: width,
+       class: w,
+       values: (
+         100: 100%,
+       ),
+     ),
+     "order": (
+       property: order,
+       class: order,
+       responsive: true,
+       values: (
+         first: -1,
+         last: 9999,
+       ),
+     ),
+     "height": (
+       property: height,
+       class: h,
+       values: (
+         auto: auto,
+         100: 100%,
+       ),
+     ),
+     "min-height": (
+       property: min-height,
+       class: mh,
+       values: (
+         100: 100%,
+       ),
+     ),
+      "min-width": (
+        property: min-width,
+        class: mw,
+        values: (
+          180: 180px,
+        ),
+      ),
+     "align-items":
+       (
+         property: align-items,
+         class: align-items,
+         values: (
+           center: center,
+         ),
+       ),
+     "align-self": (
+       property: align-self,
+       class: align-self,
+       values: (
+         center: center,
+       ),
+     ),
+     "object-fit": (
+       property: object-fit,
+       class: object,
+       values: (
+         cover: cover,
+         contain:  contain,
+       ),
+     ),
+    //  scss-docs-end utils-visibility,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  ),
+  $utilities
+);
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.truncate-1 {
+  @include truncate(1);
+}
+
+.truncate-2 {
+  @include truncate(2);
+}
+
+.truncate-3 {
+  @include truncate(3);
+}
+
+.link-underline {
+  @include hover {
+    text-decoration: underline;
+  }
+}
+
+.strong {
+  color: $strong;
+}
+
+.subtitle {
+  color: $primary;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+}
+
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: #A6BFD3;
+}
+
+.hover-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}

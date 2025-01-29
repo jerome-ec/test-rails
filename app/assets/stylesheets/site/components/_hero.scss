@@ -1,0 +1,117 @@
+
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  @include media-breakpoint-up($menu-breakpoint) {
+    height: 750px;
+  }
+  @include media-breakpoint-down($menu-breakpoint) {
+    height: 112vw;
+  }
+  video {
+    object-fit: cover;
+    z-index: -1;
+    position: relative;
+    @include media-breakpoint-up($menu-breakpoint) {
+      height: 750px;
+    }
+    @include media-breakpoint-down($menu-breakpoint) {
+      height: 129vw;
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 1;
+    // @include media-breakpoint-up($menu-breakpoint) {
+    //   padding: 271px 0 80px 0;
+    // }
+    // @include media-breakpoint-down($menu-breakpoint) {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   padding-top: 9vw;
+    // }
+    @include media-breakpoint-down(lg) {
+      p.h4 {
+        font-size: 16px;
+      }
+    }
+
+  }
+  &__subtitle {
+    position: relative;
+    span {
+      position: relative;
+      &:not(:last-of-type) {
+        margin-right: 56px;
+        &::after {
+          content: '';
+          width: 8px;
+          height: 8px;
+          border-radius: 50px;
+          background-color: $white;
+          position: absolute;
+          right: -28px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+  &__button {
+    background: $primary;
+    border: 1px solid $borderColor;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-family: $font-family-heading;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    margin: 0 auto;
+    @include rfs(32px, font-size);
+    @include media-breakpoint-up($menu-breakpoint) {
+      padding: 16px 32px;
+    }
+    @include media-breakpoint-down($menu-breakpoint) {
+      padding: 16px 24px;
+      height: 52px;
+    }
+    @include media-breakpoint-down($menu-breakpoint) {
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &--search {
+      font-size: 24px !important;
+      border-radius: 8px !important;
+      text-decoration: none;
+      @include media-breakpoint-down($menu-breakpoint) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+  
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}

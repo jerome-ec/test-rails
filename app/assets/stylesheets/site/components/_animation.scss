@@ -1,0 +1,56 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.img-hover {
+  overflow: hidden;
+  border-radius: 8px;
+  &:hover {
+    border-radius: 8px;
+  }
+  figure,
+  picture {
+    overflow: hidden;
+    @include media-breakpoint-up(lg) { 
+      height: 100%;
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+      // @include media-breakpoint-up(lg) { 
+      //   height: auto;
+      // }
+      // @include media-breakpoint-down(lg) { 
+      //   height: 100%;
+      // }
+      -webkit-transition: .2s ease-in-out;
+      transition: .2s ease-in-out;
+    }
+    &:hover img {
+      transform: scale(1.1);
+      -webkit-transition: .2s ease-in-out;
+      transition: .2s ease-in-out;
+    }
+  } 
+  img {
+    height: auto;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+  }
+  &:hover img {
+    transform: scale(1.1);
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+  }
+  &:hover {
+    figure,
+    picture {
+      overflow: hidden;
+      img { 
+        transform: scale(1.1);
+        -webkit-transition: .2s ease-in-out;
+        transition: .2s ease-in-out;
+      }
+    } 
+  }
+}
